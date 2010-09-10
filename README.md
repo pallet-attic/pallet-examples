@@ -13,6 +13,7 @@ This repository contains various examples of using
   </tbody>
 </table>
 
+![pallet logo](http://github.com/downloads/hugoduncan/pallet/pallet-logo.png)
 
 ## License
 

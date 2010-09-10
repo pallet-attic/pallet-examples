@@ -28,14 +28,33 @@ Leiningen creates a `project.clj` file, and we need to add `pallet` and `jclouds
                      [org.jclouds/jclouds-all "1.0-SNAPSHOT"]
                      [org.jclouds/jclouds-jsch "1.0-SNAPSHOT"]
                      [org.jclouds/jclouds-log4j "1.0-SNAPSHOT"]
-                     [org.jclouds/jclouds-enterprise "1.0-SNAPSHOT"]]
+                     [org.jclouds/jclouds-enterprise "1.0-SNAPSHOT"]
+                     [log4j/log4j "1.2.14"]]
       :repositories {"jclouds-snapshot" "https://oss.sonatype.org/content/repositories/snapshots/"})
 
 The last configuration step is to edit `~/.m2/settings.xml` to include your
 cloud credentials. The
-[setttings.xml](http://github.com/hugoduncan/pallet-examples/settings.xml) file
-in this projects provides an example of the format.  If you do not have this
-file, you can create it from the example.
+[setttings.xml](http://github.com/hugoduncan/pallet-examples/blob/master/blank-project/settings.xml)
+file in this projects provides an example of the format.  If you do not have
+this file, you can create it from the example.
+
+    <settings>
+      <profiles>
+        <profile>
+          <id>cloud-credentials</id>
+          <activation>
+            <activeByDefault>true</activeByDefault>
+          </activation>
+          <properties>
+            <pallet.service>ec2</pallet.service>
+            <pallet.user>api-key</pallet.user>
+            <pallet.key>api-secret</pallet.key>
+          </properties>
+        </profile>
+      </profiles>
+    </settings>
+
+
 
 ## Testing
 
@@ -44,10 +63,9 @@ To test the configuration, we'll start a REPL, and list the nodes in your accoun
     bash$ lein deps
     bash$ lein repl
     user> (use 'pallet.maven)
-
-    user> (use 'pallet.compute)
     user> (use 'org.jclouds.compute)
-    user> (def service (compute-service))
+    user> (use 'pallet.compute)
+    user> (def service (compute-service-from-settings))
     user> (nodes service)
 
 This should show any instances that you have running in your cloud account.
