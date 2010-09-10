@@ -7,15 +7,15 @@ This repository contains various examples of using
   <thead><tr><th>project</th><th>descritption</th></tr></thead>
   <tbody>
     <tr>
-      <td>blank-project</td>
+      <td><a href="http://github.com/hugoduncan/pallet-examples/tree/master/blank-project/">blank-project</a></td>
       <td>A project that is configured to use pallet</td>
     </tr>
     <tr>
-      <td>mini-webapp</td>
+      <td><a href="http://github.com/hugoduncan/pallet-examples/tree/master/mini-webapp/">mini-webapp</a></td>
       <td>A minimal webapp project</td>
     </tr>
     <tr>
-      <td>webapp-node</td>
+      <td><a href="http://github.com/hugoduncan/pallet-examples/tree/master/webapp-nodes/">webapp-nodes</a></td>
       <td>A project containing pallet node definitions for deploying mini-webapp</td>
     </tr>
   </tbody>

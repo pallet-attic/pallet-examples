@@ -9,14 +9,8 @@
 
 (defn start
   "Start the app, keeping track of the server"
-  []
-  (do
-    (reset!
-     server
-     (jetty/run-jetty
-      #'app/app
-      {:port 8080
-       :join? false}))))
+  [& {:keys [port join?] :or {port 8080 join? false}}]
+  (reset! server (jetty/run-jetty #'app/app {:port port :join? join?})))
 
 (defn stop
   "Stop the app"

@@ -7,13 +7,13 @@
 
 
     <servlet>
-        <servlet-name>mini-webapp</servlet-name>
-        <servlet-class>mini-webapp.Servlet</servlet-class>
+        <servlet-name>mini_webapp</servlet-name>
+        <servlet-class>mini_webapp.Servlet</servlet-class>
 	<load-on-startup>1</load-on-startup>
     </servlet>
 
     <servlet-mapping>
-        <servlet-name>mini-webapp</servlet-name>
+        <servlet-name>mini_webapp</servlet-name>
         <url-pattern>/</url-pattern>
     </servlet-mapping>
 
