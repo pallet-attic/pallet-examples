@@ -9,5 +9,6 @@
                  [org.jclouds/jclouds-enterprise "1.0-SNAPSHOT"]
                  [log4j/log4j "1.2.14"]]
   ;; This will add swank-clojure
-  :dev-dependencies [[swank-clojure/swank-clojure "1.2.1"]]
+  :dev-dependencies [[swank-clojure/swank-clojure "1.2.1"]
+                     [pallet-lein "0.1.0-SNAPSHOT"]]
   :repositories {"jclouds-snapshot" "https://oss.sonatype.org/content/repositories/snapshots/"})

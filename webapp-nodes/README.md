@@ -12,7 +12,13 @@ First we build the war file, in the [mini-webapp](http://github.com/hugoduncan/p
     bash$ lein deps
     bash$ lein uberwar
 
-To test the configuration, we'll start a REPL from the webapp-nodes directory,
+To test the configuration, from the webapp-nodes directory, we start a webapp
+node, and deploy our application.
+
+    bash$ lein deps
+    bash$ lein pallet converge webapp-nodes.nodes/webapp 1 :deploy
+
+Alternatively, we can start a REPL from the webapp-nodes directory,
 start a webapp node, and deploy our application.
 
     bash$ lein deps
@@ -25,6 +31,10 @@ start a webapp node, and deploy our application.
     user> (pallet.core/converge {webapp-nodes.nodes/webapp 1} service :deploy)
 
 Further deploys can be run with the `lift` function.
+
+    bash$ lein pallet lift webapp-nodes.nodes/webapp :deploy
+
+or
 
     user> (pallet.core/lift webapp-nodes.nodes/webapp service :deploy)
 

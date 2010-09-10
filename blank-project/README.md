@@ -18,7 +18,7 @@ Now we can create the project:
     Created new project in: blank-project
     bash$ cd blank-project
 
-Leiningen creates a `project.clj` file, and we need to add `pallet` and `jclouds` to the :dependencies, so it looks like:
+Leiningen creates a `project.clj` file, and we need to add pallet and jclouds to the :dependencies, and pallet-lein to the :dev-dependencies, so it looks like:
 
     (defproject blank-project "0.2.0-SNAPSHOT"
       :description "blank-project for pallet"
@@ -30,6 +30,7 @@ Leiningen creates a `project.clj` file, and we need to add `pallet` and `jclouds
                      [org.jclouds/jclouds-log4j "1.0-SNAPSHOT"]
                      [org.jclouds/jclouds-enterprise "1.0-SNAPSHOT"]
                      [log4j/log4j "1.2.14"]]
+      :dev-dependencies [[pallet-lein "0.1.0-SNAPSHOT"]]
       :repositories {"jclouds-snapshot" "https://oss.sonatype.org/content/repositories/snapshots/"})
 
 The last configuration step is to edit `~/.m2/settings.xml` to include your
@@ -58,7 +59,13 @@ this file, you can create it from the example.
 
 ## Testing
 
-To test the configuration, we'll start a REPL, and list the nodes in your account.
+To test the configuration, we can use the pallet-lein plugin, to list the nodes
+in your cloud account.
+
+    bash$ lein deps
+    bash$ lein pallet nodes
+
+Alternatively we can start a REPL, to do the same.
 
     bash$ lein deps
     bash$ lein repl
@@ -68,7 +75,7 @@ To test the configuration, we'll start a REPL, and list the nodes in your accoun
     user> (def service (compute-service-from-settings))
     user> (nodes service)
 
-This should show any instances that you have running in your cloud account.
+Both of these should show any instances that you have running in your cloud account.
 
 ## Options
 
