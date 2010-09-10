@@ -8,7 +8,15 @@ This repository contains various examples of using
   <tbody>
     <tr>
       <td>blank-project</td>
-      <td>A project that is configured to use `pallet`</td>
+      <td>A project that is configured to use pallet</td>
+    </tr>
+    <tr>
+      <td>mini-webapp</td>
+      <td>A minimal webapp project</td>
+    </tr>
+    <tr>
+      <td>webapp-node</td>
+      <td>A project containing pallet node definitions for deploying mini-webapp</td>
     </tr>
   </tbody>
 </table>
