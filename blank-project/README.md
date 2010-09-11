@@ -47,9 +47,9 @@ this file, you can create it from the example.
             <activeByDefault>true</activeByDefault>
           </activation>
           <properties>
-            <pallet.service>ec2</pallet.service>
-            <pallet.user>api-key</pallet.user>
-            <pallet.key>api-secret</pallet.key>
+            <jclouds.compute.provider>ec2</jclouds.compute.provider>
+            <jclouds.compute.identity>api-key</jclouds.compute.identity>
+            <jclouds.compute.credential>api-secret</jclouds.compute.credential>
           </properties>
         </profile>
       </profiles>
