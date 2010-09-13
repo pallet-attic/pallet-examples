@@ -7,7 +7,7 @@
 
 (core/defnode webapp
   "Basic web app, serverd by tomcat"
-  []
+  {}
   :bootstrap (resource/phase
               (crates/bootstrap))
   :configure (resource/phase
@@ -21,7 +21,7 @@
 
 (core/defnode haproxy
   "Simple haproxy"
-  []
+  {}
   :bootstrap (resource/phase
               (crates/bootstrap))
   :configure (resource/phase
@@ -31,7 +31,7 @@
 
 (core/defnode proxied
   "A proxied web app"
-  []
+  {}
   :bootstrap (resource/phase
               (crates/bootstrap))
   :configure (resource/phase
