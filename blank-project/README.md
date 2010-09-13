@@ -9,7 +9,7 @@ starting point for your own projects.
 The first thing we need is [leiningen](http://github.com/technomancy/leiningen),
 a build tool for clojure.
 
-    bash$ curl http://github.com/technomancy/leiningen/raw/stable/bin/lein > lein
+    bash$ curl -O http://github.com/technomancy/leiningen/raw/stable/bin/lein
     bash$ chmod +x lein
 
 Now we can create the project:
