@@ -34,7 +34,8 @@ First the servlet.
 ## War file
 
     lein deps
-    lein war
+    lein commpile
+    lein uberwar
 
 
 ## Installation
