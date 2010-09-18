@@ -7,7 +7,9 @@
 
 (core/defnode webapp
   "Basic web app, serverd by tomcat"
-  {}
+  {:os-family :ubuntu 
+   :os-description-matches "10.04"
+   :inbound-ports [8080 22]} ;; 8080 for tomcat, 22 for SSH
   :bootstrap (resource/phase
               (crates/bootstrap))
   :configure (resource/phase

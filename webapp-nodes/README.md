@@ -10,6 +10,7 @@ for your own projects.
 First we build the war file, in the [mini-webapp](http://github.com/hugoduncan/pallet-examples/tree/master/mini-webapp/) project directory.
 
     bash$ lein deps
+    bash$ lein compile
     bash$ lein uberwar
 
 To test the configuration, from the webapp-nodes directory, we start a webapp
