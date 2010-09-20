@@ -22,7 +22,7 @@ To create a war file we'll also use the leiningen-war plugin, so we add it to
 We also need the servlet to be AOT compiled, so we'll add an :aot entry for
 mini-webapp.servlet.
 
-    :aot ["mini-webapp.servlet"]
+    :aot [mini-webapp.Servlet]
 
 ### servlet
 
@@ -34,7 +34,7 @@ First the servlet.
 ## War file
 
     lein deps
-    lein commpile
+    lein compile
     lein uberwar
 
 
