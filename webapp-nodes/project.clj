@@ -10,4 +10,5 @@
   ;; This will add swank-clojure
   :dev-dependencies [[swank-clojure/swank-clojure "1.2.1"]
                      [org.cloudhoist/pallet-lein "0.1.0-SNAPSHOT"]]
-  :repositories {"jclouds-snapshot" "https://oss.sonatype.org/content/repositories/snapshots/"})
+  :repositories {"jclouds-snapshot" "https://oss.sonatype.org/content/repositories/snapshots/"
+                 "jclouds-release" "http://jclouds.googlecode.com/svn/repo"})
