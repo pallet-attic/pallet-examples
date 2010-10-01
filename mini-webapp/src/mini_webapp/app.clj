@@ -1,7 +1,9 @@
 (ns mini-webapp.app
   "mini-webapp application"
   (:require
-   [ring.util.response :as response]))
+   [ring.util.response :as response])
+  (:import (java.net InetAddress)))
 
 (defn app [req]
-  (response/response "Hello World!"))
+  (response/response (str "Hello World! from: "
+                          (.getHostAddress (InetAddress/getLocalHost)))))

@@ -29,8 +29,7 @@ start a webapp node, and deploy our application.
     user> (use 'pallet.compute)
     user> (require 'webapp-nodes.nodes)
     user> (def service (compute-service-from-settings))
-    user> (pallet.core/converge {webapp-nodes.nodes/webapp 1}
-            :compute service :phase :deploy)
+    user> (pallet.core/converge {webapp-nodes.nodes/webapp 1} service :deploy)
 
 Further deploys can be run with the `lift` function.
 
@@ -38,7 +37,7 @@ Further deploys can be run with the `lift` function.
 
 or
 
-    user> (pallet.core/lift webapp-nodes.nodes/webapp :compute service :phase :deploy)
+    user> (pallet.core/lift webapp-nodes.nodes/webapp service :deploy)
 
 ## License
 
