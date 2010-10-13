@@ -19,12 +19,11 @@ This repository contains various examples of using
       <td>A project containing pallet node definitions for deploying mini-webapp</td>
     </tr>
     <tr>
-        <td>[webapp-haproxy-nodes](webapp-haproxy-nodes)</td>
+        <td><a href="pallet-exmaples/tree/master/webapp-haproxy-nodes/">webapp-haproxy-nodes</a></td>
         <td>A muilti-node containing webapp and proxy definitions to setup a number of webapps proxied by one node running haproxy</td>
     </tr>
   </tbody>
 </table>
-[webapp-haproxy-nodes](webapp-haproxy-nodes)
 
 ![pallet logo](http://github.com/downloads/hugoduncan/pallet/pallet-logo.png)
 
