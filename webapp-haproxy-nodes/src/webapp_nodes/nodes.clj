@@ -31,7 +31,7 @@
 (def proxied-from-blobstore
      (assoc-in proxied [:phases :deploy]
                (resource/phase
-                (crates/tomcat-deploy-from-blobstore "bacug-demo" ;; todo: remove hardcoded  bucket
+                (crates/tomcat-deploy-from-blobstore "pallet-deployments" ;; todo: remove hardcoded  bucket
                                                   "mini-webapp-1.0.0-SNAPSHOT.war"))))
 
 
