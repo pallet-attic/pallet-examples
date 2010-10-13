@@ -2,8 +2,7 @@
 
 This example is a project that contains
 [pallet](http://github.com/hugoduncan/pallet) node configurations and phases to
-deploy web applications to the cloud.  The project can be used as starting point
-for your own projects.
+deploy web applications to the cloud proxied by HAProxy.  The project can be used as starting point for your own multi-node projects.
 
 ## Testing
 
@@ -17,7 +16,7 @@ To test the configuration, from the webapp-nodes directory, we start a webapp
 node, and deploy our application.
 
     bash$ lein deps
-    bash$ lein pallet converge webapp-nodes.nodes/webapp 1 :deploy
+    bash$ lein pallet converge webapp-nodes.nodes/proxied 2 webapp-nodes.nodes/haproxy 1 :deploy :restart-tomcat :restart-haproxy
 
 Alternatively, we can start a REPL from the webapp-nodes directory,
 start a webapp node, and deploy our application.
@@ -29,15 +28,15 @@ start a webapp node, and deploy our application.
     user> (use 'pallet.compute)
     user> (require 'webapp-nodes.nodes)
     user> (def service (compute-service-from-settings))
-    user> (pallet.core/converge {webapp-nodes.nodes/webapp 1} service :deploy)
+    user> (pallet.core/converge {webapp-nodes.nodes/proxied 2 webapp-nodes.nodes/haproxy 1} :compute service :phase {:deploy :restart-tomcat :restart-haproxy})
 
 Further deploys can be run with the `lift` function.
 
-    bash$ lein pallet lift webapp-nodes.nodes/webapp :deploy
+    bash$ lein pallet lift webapp-nodes.nodes/proxied :deploy
 
 or
 
-    user> (pallet.core/lift webapp-nodes.nodes/webapp service :deploy)
+    user> (pallet.core/lift webapp-nodes.nodes/proxied service :deploy)
 
 ## License
 
