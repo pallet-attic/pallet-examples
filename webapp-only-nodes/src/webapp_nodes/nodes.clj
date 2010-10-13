@@ -7,8 +7,7 @@
 
 (core/defnode webapp
   "Basic web app, serverd by tomcat"
-  {:image-id "us-east-1/ami-6006f309"
-   :inbound-ports [8080 22]} ;; 8080 for tomcat, 22 for SSH
+  {:inbound-ports [8080 22]} ;; 8080 for tomcat, 22 for SSH
   :bootstrap (resource/phase
               (crates/bootstrap))
   :configure (resource/phase
