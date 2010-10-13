@@ -7,8 +7,7 @@
 
 (core/defnode haproxy
   "Simple haproxy"
-  {:image-id "us-east-1/ami-6006f309"
-   :inbound-ports [80 22]}  ;; 80 for haproxy, 22 for SSH
+  {:inbound-ports [80 22]}  ;; 80 for haproxy, 22 for SSH
   :bootstrap (resource/phase
               (crates/bootstrap))
   :configure (resource/phase
@@ -18,8 +17,7 @@
 
 (core/defnode proxied
   "A proxied web app"
-  {:image-id "us-east-1/ami-6006f309"
-   :inbound-ports [8080 22]} 
+  {:inbound-ports [8080 22]} 
   :bootstrap (resource/phase
               (crates/bootstrap))
   :configure (resource/phase
