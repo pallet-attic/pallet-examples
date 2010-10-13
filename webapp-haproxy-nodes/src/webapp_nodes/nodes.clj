@@ -17,7 +17,7 @@
 
 (core/defnode proxied
   "A proxied web app"
-  {:inbound-ports [8080 22]} 
+  {:inbound-ports [8080 22]} ;; 8080 for tomcat, 22 for SSH
   :bootstrap (resource/phase
               (crates/bootstrap))
   :configure (resource/phase
@@ -28,10 +28,11 @@
   :restart-tomcat (resource/phase
                    (service/service "tomcat6" :action :restart)))
 
+;; deploys from a blobstore, instead that from the local machine. 
 (def proxied-from-blobstore
      (assoc-in proxied [:phases :deploy]
                (resource/phase
-                (crates/tomcat-deploy-from-blobstore "pallet-deployments" ;; todo: remove hardcoded  bucket
+                (crates/tomcat-deploy-from-blobstore "pallet-deployments"
                                                   "mini-webapp-1.0.0-SNAPSHOT.war"))))
 
 
