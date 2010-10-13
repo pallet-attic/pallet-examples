@@ -24,6 +24,7 @@ This repository contains various examples of using
     </tr>
   </tbody>
 </table>
+[webapp-haproxy-nodes](webapp-haproxy-nodes)
 
 ![pallet logo](http://github.com/downloads/hugoduncan/pallet/pallet-logo.png)
 
