@@ -4,7 +4,7 @@ This repository contains various examples of using
 [pallet](http://github.com/hugoduncan/pallet).
 
 <table>
-  <thead><tr><th>project</th><th>descritption</th></tr></thead>
+  <thead><tr><th>project</th><th>description</th></tr></thead>
   <tbody>
     <tr>
       <td><a href="http://github.com/hugoduncan/pallet-examples/tree/master/blank-project/">blank-project</a></td>
@@ -17,6 +17,10 @@ This repository contains various examples of using
     <tr>
       <td><a href="http://github.com/hugoduncan/pallet-examples/tree/master/webapp-nodes/">webapp-nodes</a></td>
       <td>A project containing pallet node definitions for deploying mini-webapp</td>
+    </tr>
+    <tr>
+        <td><a href="webapp-haproxy-nodes/">webapp-haproxy-nodes</a></td>
+        <td>A muilti-node containing webapp and proxy definitions to setup a number of webapps proxied by one node running haproxy</td>
     </tr>
   </tbody>
 </table>
