@@ -6,6 +6,8 @@ starting point for your own projects.
 
 ## Creating
 
+### lein
+
 The first thing we need is [leiningen](http://github.com/technomancy/leiningen),
 a build tool for clojure.
 
@@ -55,7 +57,11 @@ this file, you can create it from the example.
       </profiles>
     </settings>
 
+### cake
 
+You can equivalently use cake. You will need `[cake-pallet "0.1.0"]` in your
+`:dev-dependencies` instead of the lein plugin and you should add
+`:tasks [cake-pallet.tasks]`, both in project.clj.
 
 ## Testing
 
