@@ -26,14 +26,15 @@ Leiningen creates a `project.clj` file, and we need to add pallet and jclouds to
       :description "blank-project for pallet"
       :dependencies [[org.clojure/clojure "1.2.0"]
                      [org.clojure/clojure-contrib "1.2.0"]
-                     [pallet "0.2.0-SNAPSHOT"]
+                     [org.cloudhoist/pallet "0.3.0-SNAPSHOT"]
                      [org.jclouds/jclouds-all "1.0-SNAPSHOT"]
                      [org.jclouds/jclouds-jsch "1.0-SNAPSHOT"]
                      [org.jclouds/jclouds-log4j "1.0-SNAPSHOT"]
                      [org.jclouds/jclouds-enterprise "1.0-SNAPSHOT"]
                      [log4j/log4j "1.2.14"]]
-      :dev-dependencies [[pallet-lein "0.1.0-SNAPSHOT"]]
-      :repositories {"jclouds-snapshot" "https://oss.sonatype.org/content/repositories/snapshots/"})
+      :dev-dependencies [[org.cloudhoist/pallet-lein "0.1.0"]]
+      :repositories {"sonatype-snapshot" "https://oss.sonatype.org/content/repositories/snapshots/"
+                     "sonatype" "https://oss.sonatype.org/content/repositories/releases"})
 
 The last configuration step is to edit `~/.m2/settings.xml` to include your
 cloud credentials. The
