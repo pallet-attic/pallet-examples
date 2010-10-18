@@ -1,5 +1,5 @@
     (defproject blank-project "0.2.0-SNAPSHOT"
-      :description "blank-project for pallet"
+      :description "hudson example project for pallet"
       :dependencies [[org.clojure/clojure "1.2.0"]
                      [org.clojure/clojure-contrib "1.2.0"]
                      [org.cloudhoist/pallet "0.3.0-SNAPSHOT"]
