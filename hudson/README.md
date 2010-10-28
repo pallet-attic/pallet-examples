@@ -42,9 +42,9 @@ this file, you can create it from the example.
             <activeByDefault>true</activeByDefault>
           </activation>
           <properties>
-            <jclouds.compute.provider>ec2</jclouds.compute.provider>
-            <jclouds.compute.identity>api-key</jclouds.compute.identity>
-            <jclouds.compute.credential>api-secret</jclouds.compute.credential>
+            <pallet.compute.provider>ec2</pallet.compute.provider>
+            <pallet.compute.identity>api-key</pallet.compute.identity>
+            <pallet.compute.credential>api-secret</pallet.compute.credential>
           </properties>
         </profile>
       </profiles>
