@@ -4,6 +4,7 @@
    [pallet.crate.automated-admin-user :as automated-admin-user]
    [pallet.crate.git :as git]
    [pallet.crate.hudson :as hudson]
+   [pallet.crate.java :as java]
    [pallet.crate.tomcat :as tomcat]
    [pallet.crate.maven :as maven]
    [pallet.parameter :as parameter]
@@ -32,6 +33,7 @@
    request
    (maven/package)
    (git/git)
+   (java/java :sun)
    (tomcat/tomcat)
    (user/user "testuser" :create-home true :shell :bash)
    (service/with-restart "tomcat6"
