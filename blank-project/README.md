@@ -77,7 +77,6 @@ Alternatively we can start a REPL, to do the same.
     bash$ lein deps
     bash$ lein repl
     user> (use 'pallet.maven)
-    user> (use 'org.jclouds.compute)
     user> (use 'pallet.compute)
     user> (def service (compute-service-from-settings))
     user> (nodes service)
