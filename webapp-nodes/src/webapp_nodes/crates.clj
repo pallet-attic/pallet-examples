@@ -15,7 +15,7 @@
   "Tomcat server configuration"
   [request]
   (-> request
-      (java/java :openjdk)
+      (java/java :sun)
       (tomcat/tomcat)))
 
 (defn tomcat-deploy
