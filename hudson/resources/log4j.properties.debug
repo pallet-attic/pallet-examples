@@ -2,13 +2,12 @@ log4j.rootLogger=debug, stdout, R
 
 log4j.appender.stdout=org.apache.log4j.ConsoleAppender
 log4j.appender.stdout.layout=org.apache.log4j.PatternLayout
-log4j.appender.stdout.Threshold=info
 
 # Pattern to output the caller's file name and line number.
 log4j.appender.stdout.layout.ConversionPattern=%5p %d %c - %m%n
 
 log4j.appender.R=org.apache.log4j.RollingFileAppender
-log4j.appender.R.File=log/webapp-nodes.log
+log4j.appender.R.File=log/blank_project.log
 log4j.appender.R.Threshold=trace
 
 log4j.appender.R.MaxFileSize=100KB
@@ -30,3 +29,5 @@ log4j.appender.jclouds.MaxFileSize=100KB
 
 log4j.appender.jclouds.layout=org.apache.log4j.PatternLayout
 log4j.appender.jclouds.layout.ConversionPattern=%p [%t] %d %c - %m%n
+
+
