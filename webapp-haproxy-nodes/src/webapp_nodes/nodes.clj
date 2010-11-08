@@ -12,7 +12,8 @@
   :bootstrap (resource/phase
               (crates/bootstrap))
   :configure (resource/phase
-              (crates/haproxy))
+              (crates/haproxy)
+              (service/service "haproxy" :action :restart))
   :restart-haproxy (resource/phase
                     (service/service "haproxy" :action :restart)))
 
@@ -32,10 +33,10 @@
                         "../nano-webapp/target/nano-webapp.war"))
   :deploy-from-blobstore (resource/phase
                           (crates/tomcat-deploy-from-blobstore
-                           (:pallet.deploy.bucket (maven/properties ["pallet-config"]))
+                           (or
+                            (:deploy-bucket (pallet.configure/pallet-config))
+                            (:pallet.deploy.bucket (maven/properties))
+                            (str (System/getProperty "user.name") "oredev"))
                            "mini-webapp-1.0.0-SNAPSHOT.war"))
   :restart-tomcat (resource/phase
                    (service/service "tomcat6" :action :restart)))
-
-
-
