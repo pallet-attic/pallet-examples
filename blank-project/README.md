@@ -36,8 +36,24 @@ Leiningen creates a `project.clj` file, and we need to add pallet and jclouds to
       :repositories {"sonatype-snapshot" "https://oss.sonatype.org/content/repositories/snapshots/"
                      "sonatype" "https://oss.sonatype.org/content/repositories/releases"})
 
-The last configuration step is to edit `~/.m2/settings.xml` to include your
-cloud credentials. The
+Note that jclouds-all is rather heavy.  You can use the list of supported clouds
+and individual jclouds provider jars to slim the dependency down.
+
+    lein pallet providers
+
+### cake
+
+You can equivalently use cake. You will need `[cake-pallet "0.1.0"]` in your
+`:dev-dependencies` instead of the lein plugin and you should add
+`:tasks [cake-pallet.tasks]`, both in project.clj.
+
+## Credentials
+
+The last configuration step is to specify your cloud credentials.
+
+### ~/.m2/settings.xml
+
+You can edit `~/.m2/settings.xml` to include your cloud credentials. The
 [setttings.xml](http://github.com/hugoduncan/pallet-examples/blob/master/blank-project/settings.xml)
 file in this projects provides an example of the format.  If you do not have
 this file, you can create it from the example.
@@ -53,16 +69,29 @@ this file, you can create it from the example.
             <pallet.compute.provider>ec2</pallet.compute.provider>
             <pallet.compute.identity>api-key</pallet.compute.identity>
             <pallet.compute.credential>api-secret</pallet.compute.credential>
+            <pallet.blobstore.provider>s3</pallet.blobstore.provider>
+            <pallet.blobstore.identity>api-key</pallet.blobstore.identity>
+            <pallet.blobstore.credential>api-secret</pallet.blobstore.credential>
           </properties>
         </profile>
       </profiles>
     </settings>
 
-### cake
+You can select which profile is used by passing a `-P` argument, e.g.,
+`lein pallet -P cloud-credentials nodes`.
 
-You can equivalently use cake. You will need `[cake-pallet "0.1.0"]` in your
-`:dev-dependencies` instead of the lein plugin and you should add
-`:tasks [cake-pallet.tasks]`, both in project.clj.
+### ~/.pallet/config.clj
+
+You can edit `~/.pallet/config.clj` to include your cloud credentials.
+
+    (defpallet
+      :providers {:aws {:provider "ec2"
+                        :identity "your-key"
+                        :credential "your-secret"
+                        :blobstore {:provider "s3"}}})
+
+You can select which credentials are used by passing a `-P` argument, e.g.,
+`lein pallet -P aws nodes`.
 
 ## Testing
 
