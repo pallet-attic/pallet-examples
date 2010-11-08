@@ -25,7 +25,7 @@
               (crates/tomcat)
               (crates/reverse-proxy :haproxy :app1 8080))
   :deploy-mini-webapp (resource/phase
-                       (crates/tomcat-deployy
+                       (crates/tomcat-deploy
                         "../mini-webapp/mini-webapp-1.0.0-SNAPSHOT.war"))
   :deploy-nano-webapp (resource/phase
                        (crates/tomcat-deploy

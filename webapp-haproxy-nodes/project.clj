@@ -10,5 +10,5 @@
                  [org.jclouds/jclouds-enterprise "1.0-SNAPSHOT"]
                  [log4j/log4j "1.2.14"]]
   :dev-dependencies [[swank-clojure/swank-clojure "1.2.1"]
-                     [org.cloudhoist/pallet-lein "0.1.0-SNAPSHOT"]]
+                     [org.cloudhoist/pallet-lein "0.2.0"]]
   :repositories {"jclouds-snapshot" "https://oss.sonatype.org/content/repositories/snapshots/"})
