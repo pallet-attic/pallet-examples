@@ -1,5 +1,6 @@
 (ns webapp-nodes.nodes
   (:require
+   [pallet.maven :as maven]
    [pallet.core :as core]
    [pallet.resource :as resource]
    [pallet.resource.service :as service]
@@ -23,16 +24,18 @@
   :configure (resource/phase
               (crates/tomcat)
               (crates/reverse-proxy :haproxy :app1 8080))
-  :deploy (resource/phase
-           (crates/tomcat-deploy "../mini-webapp/mini-webapp-1.0.0-SNAPSHOT.war"))
+  :deploy-mini-webapp (resource/phase
+                       (crates/tomcat-deployy
+                        "../mini-webapp/mini-webapp-1.0.0-SNAPSHOT.war"))
+  :deploy-nano-webapp (resource/phase
+                       (crates/tomcat-deploy
+                        "../nano-webapp/target/nano-webapp.war"))
+  :deploy-from-blobstore (resource/phase
+                          (crates/tomcat-deploy-from-blobstore
+                           (:pallet.deploy.bucket (maven/properties ["pallet-config"]))
+                           "mini-webapp-1.0.0-SNAPSHOT.war"))
   :restart-tomcat (resource/phase
                    (service/service "tomcat6" :action :restart)))
 
-;; deploys from a blobstore, instead that from the local machine. 
-(def proxied-from-blobstore
-     (assoc-in proxied [:phases :deploy]
-               (resource/phase
-                (crates/tomcat-deploy-from-blobstore "pallet-deployments"
-                                                  "mini-webapp-1.0.0-SNAPSHOT.war"))))
 
 
