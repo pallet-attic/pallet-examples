@@ -11,8 +11,12 @@ This repository contains various examples of using
       <td>A project that is configured to use pallet</td>
     </tr>
     <tr>
-      <td><a href="pallet-examples/tree/master/mini-webapp/">mini-webapp</a></td>
+      <td><a href="pallet-examples/tree/master/nano-webapp/">nano-webapp</a></td>
       <td>A minimal webapp project</td>
+    </tr>
+    <tr>
+      <td><a href="pallet-examples/tree/master/mini-webapp/">mini-webapp</a></td>
+      <td>A minimal webapp project in clojure</td>
     </tr>
     <tr>
       <td><a href="pallet-examples/tree/master/webapp-nodes/">webapp-nodes</a></td>
@@ -21,6 +25,10 @@ This repository contains various examples of using
     <tr>
         <td><a href="pallet-examples/tree/master/webapp-haproxy-nodes/">webapp-haproxy-nodes</a></td>
         <td>A muilti-node containing webapp and proxy definitions to setup a number of webapps proxied by one node running haproxy</td>
+    </tr>
+    <tr>
+      <td><a href="pallet-examples/tree/master/hudson/">hudson</a></td>
+      <td>A project containing pallet node definition for setting up a hudson ci server</td>
     </tr>
   </tbody>
 </table>
