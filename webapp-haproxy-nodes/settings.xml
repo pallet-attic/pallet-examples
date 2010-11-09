@@ -13,14 +13,6 @@
         <jclouds.blobstore.provider>cloud blobstore name</jclouds.blobstore.provider>
         <jclouds.blobstore.identity>identity</jclouds.blobstore.identity>
         <jclouds.blobstore.credential>credential</jclouds.blobstore.credential>
-      </properties>
-    </profile>
-    <profile>
-      <id>pallet-config</id>
-      <activation>
-        <activeByDefault>true</activeByDefault>
-      </activation>
-      <properties>
         <pallet.deploy.bucket>bucket name for webapp deployments</pallet.deploy.bucket>
       </properties>
     </profile>
