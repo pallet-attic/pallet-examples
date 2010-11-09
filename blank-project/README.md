@@ -32,13 +32,14 @@ Leiningen creates a `project.clj` file, and we need to add pallet and jclouds to
                      [org.jclouds/jclouds-log4j "1.0-SNAPSHOT"]
                      [org.jclouds/jclouds-enterprise "1.0-SNAPSHOT"]
                      [log4j/log4j "1.2.14"]]
-      :dev-dependencies [[org.cloudhoist/pallet-lein "0.1.0"]]
+      :dev-dependencies [[org.cloudhoist/pallet-lein "0.2.0"]]
       :repositories {"sonatype-snapshot" "https://oss.sonatype.org/content/repositories/snapshots/"
                      "sonatype" "https://oss.sonatype.org/content/repositories/releases"})
 
 Note that jclouds-all is rather heavy.  You can use the list of supported clouds
 and individual jclouds provider jars to slim the dependency down.
 
+    lein deps
     lein pallet providers
 
 ### cake
@@ -80,19 +81,6 @@ this file, you can create it from the example.
 You can select which profile is used by passing a `-P` argument, e.g.,
 `lein pallet -P cloud-credentials nodes`.
 
-### ~/.pallet/config.clj
-
-You can edit `~/.pallet/config.clj` to include your cloud credentials.
-
-    (defpallet
-      :providers {:aws {:provider "ec2"
-                        :identity "your-key"
-                        :credential "your-secret"
-                        :blobstore {:provider "s3"}}})
-
-You can select which credentials are used by passing a `-P` argument, e.g.,
-`lein pallet -P aws nodes`.
-
 ## Testing
 
 To test the configuration, we can use the pallet-lein plugin, to list the nodes
@@ -105,7 +93,6 @@ Alternatively we can start a REPL, to do the same.
 
     bash$ lein deps
     bash$ lein repl
-    user> (use 'pallet.maven)
     user> (use 'pallet.compute)
     user> (def service (compute-service-from-settings))
     user> (nodes service)
@@ -129,8 +116,11 @@ If you use [SLIME](http://common-lisp.net/project/slime), you can add swank-cloj
 When we added jclouds, we specified `jclouds-all` as the dependency.  Jclouds
 also has fine grained jars for each individual cloud provider that can be used instead to reduce the size of the jclouds dependency.
 
-
-
+### Eclipse
+If you use eclipse, you can generate the project files using a combination of lein and mvn.  When finished, you can import this as an existing project.
+   
+    bash$ lein pom
+    bash$ mvn eclipse:eclipse -DdownloadSources=true -DdownloadJavadocs=true
 
 ## License
 
