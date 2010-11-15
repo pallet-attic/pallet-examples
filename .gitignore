@@ -5,3 +5,5 @@ logs
 .cake
 checkouts
 lib
+target
+tmp
