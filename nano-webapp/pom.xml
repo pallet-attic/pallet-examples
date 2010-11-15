@@ -4,7 +4,7 @@
   <groupId>com.cloudhoist</groupId>
   <artifactId>nano-webapp</artifactId>
   <packaging>war</packaging>
-  <version>1.0-SNAPSHOT</version>
+  <version>0.3.0</version>
   <name>nano-webapp Maven Webapp</name>
   <url>http://maven.apache.org</url>
   <dependencies>

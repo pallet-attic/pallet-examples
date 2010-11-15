@@ -1,4 +1,4 @@
-(defproject mini-webapp "1.0.0-SNAPSHOT"
+(defproject mini-webapp "0.3.0"
   :description "mini-webapp"
   :aot [mini-webapp.Servlet]
   :dependencies [[org.clojure/clojure "1.2.0"]

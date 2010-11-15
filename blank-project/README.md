@@ -22,19 +22,18 @@ Now we can create the project:
 
 Leiningen creates a `project.clj` file, and we need to add pallet and jclouds to the :dependencies, and pallet-lein to the :dev-dependencies, so it looks like:
 
-    (defproject blank-project "0.2.0-SNAPSHOT"
+    (defproject blank-project "0.3.0"
       :description "blank-project for pallet"
       :dependencies [[org.clojure/clojure "1.2.0"]
                      [org.clojure/clojure-contrib "1.2.0"]
-                     [org.cloudhoist/pallet "0.3.0-SNAPSHOT"]
-                     [org.jclouds/jclouds-all "1.0-SNAPSHOT"]
-                     [org.jclouds/jclouds-jsch "1.0-SNAPSHOT"]
-                     [org.jclouds/jclouds-log4j "1.0-SNAPSHOT"]
-                     [org.jclouds/jclouds-enterprise "1.0-SNAPSHOT"]
+                     [org.cloudhoist/pallet "0.3.0"]
+                     [org.jclouds/jclouds-all "1.0-beta-8"]
+                     [org.jclouds/jclouds-jsch "1.0-beta-8"]
+                     [org.jclouds/jclouds-log4j "1.0-beta-8"]
+                     [org.jclouds/jclouds-enterprise "1.0-beta-8"]
                      [log4j/log4j "1.2.14"]]
       :dev-dependencies [[org.cloudhoist/pallet-lein "0.2.0"]]
-      :repositories {"sonatype-snapshot" "https://oss.sonatype.org/content/repositories/snapshots/"
-                     "sonatype" "https://oss.sonatype.org/content/repositories/releases"})
+      :repositories {"sonatype" "https://oss.sonatype.org/content/repositories/releases"})
 
 Note that jclouds-all is rather heavy.  You can use the list of supported clouds
 and individual jclouds provider jars to slim the dependency down.
@@ -118,7 +117,7 @@ also has fine grained jars for each individual cloud provider that can be used i
 
 ### Eclipse
 If you use eclipse, you can generate the project files using a combination of lein and mvn.  When finished, you can import this as an existing project.
-   
+
     bash$ lein pom
     bash$ mvn eclipse:eclipse -DdownloadSources=true -DdownloadJavadocs=true
 
@@ -126,4 +125,4 @@ If you use eclipse, you can generate the project files using a combination of le
 
 Copyright (C) 2010 Hugo Duncan
 
-Distributed under the Eclipse Public License, the same as Clojure.
+Distributed under the Eclipse Public License.
