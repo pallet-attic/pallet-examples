@@ -15,7 +15,7 @@ Project with basic pallet usage.
         $ lein deps
         $ lein repl
 
-- Work through the code in [pallet-examples/basic/src/demo.clj](pallet-examples/basic/src/demo.clj)
+- Work through the code in [pallet-examples/basic/src/demo.clj](https://github.com/hugoduncan/pallet-examples/blob/master/basic/src/demo.clj)
 
 ## License
 
