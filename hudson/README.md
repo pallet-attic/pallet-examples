@@ -14,41 +14,24 @@ Create a clojure project with
 Leiningen creates a `project.clj` file, and we need to add pallet and jclouds to
 the :dependencies, and pallet-lein to the :dev-dependencies, so it looks like:
 
-    (defproject blank-project "0.2.0-SNAPSHOT"
+    (defproject blank-project "0.3.0"
       :description "blank-project for pallet"
-      :dependencies [[org.clojure/clojure "1.2.0"]
-                     [org.clojure/clojure-contrib "1.2.0"]
-                     [org.cloudhoist/pallet "0.3.0-SNAPSHOT"]
-                     [org.jclouds/jclouds-all "1.0-SNAPSHOT"]
-                     [org.jclouds/jclouds-jsch "1.0-SNAPSHOT"]
-                     [org.jclouds/jclouds-log4j "1.0-SNAPSHOT"]
-                     [org.jclouds/jclouds-enterprise "1.0-SNAPSHOT"]
+      :dependencies [[org.cloudhoist/pallet "0.4.6"]
+                     [org.cloudhoist/pallet-crates-standalone "0.4.0"]
+                     [org.jclouds/jclouds-all "1.0-beta-8"]
+                     [org.jclouds/jclouds-jsch "1.0-beta-8"]
+                     [org.jclouds/jclouds-log4j "1.0-beta-8"]
+                     [org.jclouds/jclouds-enterprise "1.0-beta-8"]
                      [log4j/log4j "1.2.14"]]
-      :dev-dependencies [[org.cloudhoist/pallet-lein "0.1.0"]]
-      :repositories {"sonatype-snapshot" "https://oss.sonatype.org/content/repositories/snapshots/"
-                     "sonatype" "https://oss.sonatype.org/content/repositories/releases"})
+      :dev-dependencies [[org.cloudhoist/pallet-lein "0.4.0"]]
+      :repositories {"sonatype" "https://oss.sonatype.org/content/repositories/releases"})
 
+You can create `~/.pallet/config.clj` to include your cloud credentials.
 
-Now edit (or create) `~/.m2/settings.xml` to include your cloud credentials. The
-[setttings.xml](http://github.com/hugoduncan/pallet-examples/blob/master/blank-project/settings.xml)
-file in this projects provides an example of the format.  If you do not have
-this file, you can create it from the example.
-
-    <settings>
-      <profiles>
-        <profile>
-          <id>cloud-credentials</id>
-          <activation>
-            <activeByDefault>true</activeByDefault>
-          </activation>
-          <properties>
-            <pallet.compute.provider>ec2</pallet.compute.provider>
-            <pallet.compute.identity>api-key</pallet.compute.identity>
-            <pallet.compute.credential>api-secret</pallet.compute.credential>
-          </properties>
-        </profile>
-      </profiles>
-    </settings>
+    (defpallet
+      :serivces
+        {:aws {:provider "ec2" :identity "key" :credential "secret-key"}
+         :rs  {:provider "cloudservers" :identity "username" :credential "key"}})
 
 Lein will create `src/hudson/core.clj` which we will rename to `src/hudson/ci.clj`.
 See [ci.clj](http://github.com/hugoduncan/pallet-examples/blob/master/hudson/src/hudson/ci.clj)

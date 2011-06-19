@@ -9,7 +9,7 @@ We create a blank clojure project.
 ### project.clj
     lein new mini-webapp
 
-We'll use the [ring](http://github.com/mmcgrana/ring) library, so well add that
+We'll use the [ring](http://github.com/mmcgrana/ring) library, so we'll add that
 to the project.clj `:depenencies`
 
     [ring "0.2.6"]
@@ -40,10 +40,10 @@ First the servlet.
 
 ## Installation
 
-FIXME: write
+See webapp-haproxy-nodes project.
 
 ## License
 
-Copyright (C) 2010 FIXME
+Copyright (C) 2010 Hugo Duncan
 
-Distributed under the Eclipse Public License, the same as Clojure.
+Distributed under the Eclipse Public License.

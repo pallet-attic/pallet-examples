@@ -5,3 +5,8 @@ logs
 .cake
 checkouts
 lib
+target
+tmp
+**/test-resources/log4j.properties
+**/pom.xml
+integration.log

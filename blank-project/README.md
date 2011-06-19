@@ -22,22 +22,49 @@ Now we can create the project:
 
 Leiningen creates a `project.clj` file, and we need to add pallet and jclouds to the :dependencies, and pallet-lein to the :dev-dependencies, so it looks like:
 
-    (defproject blank-project "0.2.0-SNAPSHOT"
+    (defproject blank-project "0.4.0"
       :description "blank-project for pallet"
-      :dependencies [[org.clojure/clojure "1.2.0"]
-                     [org.clojure/clojure-contrib "1.2.0"]
-                     [org.cloudhoist/pallet "0.3.0-SNAPSHOT"]
-                     [org.jclouds/jclouds-all "1.0-SNAPSHOT"]
-                     [org.jclouds/jclouds-jsch "1.0-SNAPSHOT"]
-                     [org.jclouds/jclouds-log4j "1.0-SNAPSHOT"]
-                     [org.jclouds/jclouds-enterprise "1.0-SNAPSHOT"]
+      :dependencies [[org.cloudhoist/pallet "0.4.6"]
+                     [org.jclouds/jclouds-all "1.0-beta-8"]
+                     [org.jclouds/jclouds-jsch "1.0-beta-8"]
+                     [org.jclouds/jclouds-log4j "1.0-beta-8"]
+                     [org.jclouds/jclouds-enterprise "1.0-beta-8"]
                      [log4j/log4j "1.2.14"]]
-      :dev-dependencies [[org.cloudhoist/pallet-lein "0.1.0"]]
-      :repositories {"sonatype-snapshot" "https://oss.sonatype.org/content/repositories/snapshots/"
-                     "sonatype" "https://oss.sonatype.org/content/repositories/releases"})
+      :dev-dependencies [[org.cloudhoist/pallet-lein "0.4.0"]]
+      :repositories {"sonatype" "https://oss.sonatype.org/content/repositories/releases"})
 
-The last configuration step is to edit `~/.m2/settings.xml` to include your
-cloud credentials. The
+Note that jclouds-all is rather heavy.  You can use the list of supported clouds
+and individual jclouds provider jars to slim the dependency down.
+
+    lein deps
+    lein pallet providers
+
+### cake
+
+You can equivalently use cake. You will need `[cake-pallet "0.4.0"]` in your
+`:dev-dependencies` instead of the lein plugin and you should add
+`:tasks [cake-pallet.tasks]`, both in project.clj.
+
+## Credentials
+
+The last configuration step is to specify your cloud credentials.
+
+### ~/.pallet/config.clj
+
+You can create `~/.pallet/config.clj` to include your cloud credentials.
+
+    (defpallet
+      :serivces
+        {:aws {:provider "ec2" :identity "key" :credential "secret-key"}
+         :rs  {:provider "cloudservers" :identity "username" :credential "key"}})
+
+### ~/.m2/settings.xml
+
+You can alternatively edit `~/.m2/settings.xml` to include your cloud
+credentials. You will need to add maven-settings to your project dependencies
+for this to work.
+    [org.apache.maven/maven-settings "2.0.10"]
+The
 [setttings.xml](http://github.com/hugoduncan/pallet-examples/blob/master/blank-project/settings.xml)
 file in this projects provides an example of the format.  If you do not have
 this file, you can create it from the example.
@@ -53,16 +80,16 @@ this file, you can create it from the example.
             <pallet.compute.provider>ec2</pallet.compute.provider>
             <pallet.compute.identity>api-key</pallet.compute.identity>
             <pallet.compute.credential>api-secret</pallet.compute.credential>
+            <pallet.blobstore.provider>s3</pallet.blobstore.provider>
+            <pallet.blobstore.identity>api-key</pallet.blobstore.identity>
+            <pallet.blobstore.credential>api-secret</pallet.blobstore.credential>
           </properties>
         </profile>
       </profiles>
     </settings>
 
-### cake
-
-You can equivalently use cake. You will need `[cake-pallet "0.1.0"]` in your
-`:dev-dependencies` instead of the lein plugin and you should add
-`:tasks [cake-pallet.tasks]`, both in project.clj.
+You can select which profile is used by passing a `-P` argument, e.g.,
+`lein pallet -P cloud-credentials nodes`.
 
 ## Testing
 
@@ -76,7 +103,6 @@ Alternatively we can start a REPL, to do the same.
 
     bash$ lein deps
     bash$ lein repl
-    user> (use 'pallet.maven)
     user> (use 'pallet.compute)
     user> (def service (compute-service-from-settings))
     user> (nodes service)
@@ -100,11 +126,14 @@ If you use [SLIME](http://common-lisp.net/project/slime), you can add swank-cloj
 When we added jclouds, we specified `jclouds-all` as the dependency.  Jclouds
 also has fine grained jars for each individual cloud provider that can be used instead to reduce the size of the jclouds dependency.
 
+### Eclipse
+If you use eclipse, you can generate the project files using a combination of lein and mvn.  When finished, you can import this as an existing project.
 
-
+    bash$ lein pom
+    bash$ mvn eclipse:eclipse -DdownloadSources=true -DdownloadJavadocs=true
 
 ## License
 
 Copyright (C) 2010 Hugo Duncan
 
-Distributed under the Eclipse Public License, the same as Clojure.
+Distributed under the Eclipse Public License.

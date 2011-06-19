@@ -1,5 +1,6 @@
 (ns webapp-nodes.nodes
   (:require
+   [pallet.maven :as maven]
    [pallet.core :as core]
    [pallet.resource :as resource]
    [pallet.resource.service :as service]
@@ -11,7 +12,8 @@
   :bootstrap (resource/phase
               (crates/bootstrap))
   :configure (resource/phase
-              (crates/haproxy))
+              (crates/haproxy)
+              (service/service "haproxy" :action :restart))
   :restart-haproxy (resource/phase
                     (service/service "haproxy" :action :restart)))
 
@@ -23,16 +25,18 @@
   :configure (resource/phase
               (crates/tomcat)
               (crates/reverse-proxy :haproxy :app1 8080))
-  :deploy (resource/phase
-           (crates/tomcat-deploy "../mini-webapp/mini-webapp-1.0.0-SNAPSHOT.war"))
+  :deploy-mini-webapp (resource/phase
+                       (crates/tomcat-deploy
+                        "../mini-webapp/mini-webapp-1.0.0-SNAPSHOT.war"))
+  :deploy-nano-webapp (resource/phase
+                       (crates/tomcat-deploy
+                        "../nano-webapp/target/nano-webapp.war"))
+  :deploy-from-blobstore (resource/phase
+                          (crates/tomcat-deploy-from-blobstore
+                           (or
+                            (:deploy-bucket (pallet.configure/pallet-config))
+                            (:pallet.deploy.bucket (maven/properties nil))
+                            (str (System/getProperty "user.name") "oredev"))
+                           "mini-webapp-1.0.0-SNAPSHOT.war"))
   :restart-tomcat (resource/phase
                    (service/service "tomcat6" :action :restart)))
-
-;; deploys from a blobstore, instead that from the local machine. 
-(def proxied-from-blobstore
-     (assoc-in proxied [:phases :deploy]
-               (resource/phase
-                (crates/tomcat-deploy-from-blobstore "pallet-deployments"
-                                                  "mini-webapp-1.0.0-SNAPSHOT.war"))))
-
-

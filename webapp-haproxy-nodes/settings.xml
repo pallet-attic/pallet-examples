@@ -7,9 +7,13 @@
 	<activeByDefault>true</activeByDefault>
       </activation>
       <properties>
-        <pallet.service>cloudservers</pallet.service>
-        <pallet.user>username</pallet.user>
-        <pallet.key>key</pallet.key>
+        <jclouds.compute.provider>cloud compute service name</jclouds.compute.provider>
+        <jclouds.compute.identity>identity</jclouds.compute.identity>
+        <jclouds.compute.credential>credential</jclouds.compute.credential>
+        <jclouds.blobstore.provider>cloud blobstore name</jclouds.blobstore.provider>
+        <jclouds.blobstore.identity>identity</jclouds.blobstore.identity>
+        <jclouds.blobstore.credential>credential</jclouds.blobstore.credential>
+        <pallet.deploy.bucket>bucket name for webapp deployments</pallet.deploy.bucket>
       </properties>
     </profile>
   </profiles>

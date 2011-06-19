@@ -14,6 +14,6 @@
               (crates/tomcat))
   :deploy (resource/phase
            (crates/tomcat-deploy
-            "../mini-webapp/mini-webapp-1.0.0-SNAPSHOT.war"))
+            "../mini-webapp/mini-webapp-0.4.0-SNAPSHOT.war"))
   :restart-tomcat (resource/phase
                    (service/service "tomcat6" :action :restart)))
