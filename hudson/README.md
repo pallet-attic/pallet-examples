@@ -57,7 +57,7 @@ See [ci.clj](http://github.com/hugoduncan/pallet-examples/blob/master/hudson/src
 To launch the server:
 
     bash$ lein deps
-    bash$ lein pallet converge hudson.ci/hudson 1 :deploy
+    bash$ lein pallet converge hudson.ci/hudson 1
 
 
 
