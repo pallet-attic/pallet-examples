@@ -1,7 +1,7 @@
 # pallet-examples
 
 This repository contains various examples of using
-[pallet](https://github.com/hugoduncan/pallet).
+[pallet](https://github.com/pallet/pallet).
 
 <table>
   <thead><tr><th>project</th><th>description</th></tr></thead>
@@ -13,14 +13,6 @@ This repository contains various examples of using
     <tr>
       <td><a href="pallet-examples/tree/master/blank-project/">blank-project</a></td>
       <td>A project that is configured to use pallet</td>
-    </tr>
-    <tr>
-      <td><a href="pallet-examples/tree/master/nano-webapp/">nano-webapp</a></td>
-      <td>A minimal webapp project.</td>
-    </tr>
-    <tr>
-      <td><a href="pallet-examples/tree/master/mini-webapp/">mini-webapp</a></td>
-      <td>A minimal webapp project in clojure</td>
     </tr>
     <tr>
       <td><a href="pallet-examples/tree/master/webapp-nodes/">webapp-nodes</a></td>
@@ -37,7 +29,7 @@ This repository contains various examples of using
   </tbody>
 </table>
 
-![pallet logo](https://github.com/downloads/hugoduncan/pallet/pallet-logo.png)
+![pallet logo](https://github.com/downloads/pallet/pallet/pallet-logo.png)
 
 ## License
 
