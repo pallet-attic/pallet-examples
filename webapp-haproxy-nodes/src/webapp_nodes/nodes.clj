@@ -1,6 +1,5 @@
 (ns webapp-nodes.nodes
   (:require
-   [pallet.maven :as maven]
    [pallet.core :as core]
    [pallet.resource :as resource]
    [pallet.resource.service :as service]
@@ -35,7 +34,6 @@
                           (crates/tomcat-deploy-from-blobstore
                            (or
                             (:deploy-bucket (pallet.configure/pallet-config))
-                            (:pallet.deploy.bucket (maven/properties nil))
                             (str (System/getProperty "user.name") "oredev"))
                            "mini-webapp-1.0.0-SNAPSHOT.war"))
   :restart-tomcat (resource/phase

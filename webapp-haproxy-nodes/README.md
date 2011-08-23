@@ -31,7 +31,7 @@ Then we build the war file in the [nano-webapp](http://github.com/hugoduncan/pal
 To test the configuration, from the webapp-nodes directory, we start a webapp single instance of the 'proxied' node with nano-webapp deployed.
 
     bash$ lein deps
-    bash$ lein pallet converge webapp-nodes.nodes/proxied 1 :deploy-nano-webapp :restart-tomcat
+    bash$ lein pallet converge webapp-nodes.nodes/proxied 1 :configure :deploy-nano-webapp :restart-tomcat
 
 Using the public IP address of your new node, check that the newly deployed application is running by visiting http://<node's public IP>:8080
 
