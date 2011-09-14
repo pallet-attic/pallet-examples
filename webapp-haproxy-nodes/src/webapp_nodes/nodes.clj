@@ -30,11 +30,5 @@
   :deploy-nano-webapp (resource/phase
                        (crates/tomcat-deploy
                         "../nano-webapp/target/nano-webapp.war"))
-  :deploy-from-blobstore (resource/phase
-                          (crates/tomcat-deploy-from-blobstore
-                           (or
-                            (:deploy-bucket (pallet.configure/pallet-config))
-                            (str (System/getProperty "user.name") "oredev"))
-                           "mini-webapp-1.0.0-SNAPSHOT.war"))
   :restart-tomcat (resource/phase
                    (service/service "tomcat6" :action :restart)))

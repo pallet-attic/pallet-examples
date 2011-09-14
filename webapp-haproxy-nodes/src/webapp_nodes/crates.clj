@@ -27,15 +27,6 @@
       (tomcat/settings {})
       (tomcat/deploy "ROOT" :local-file path :clear-existing true)))
 
-(defn tomcat-deploy-from-blobstore
-  [request container path]
-  (println "Deploying from %s %s" container path)
-  (-> request
-      (tomcat/settings {})
-      (tomcat/deploy
-       "ROOT"
-       :blob {:container container :path path} :clear-existing true)))
-
 (defn haproxy
   "haproxy server with app1 on port 80."
   [request]
