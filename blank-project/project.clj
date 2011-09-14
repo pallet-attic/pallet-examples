@@ -1,6 +1,6 @@
 (defproject blank-project "0.6.0"
   :description "blank-project for pallet"
-  :dependencies [[org.cloudhoist/pallet "0.6.2"]
+  :dependencies [[org.cloudhoist/pallet "0.6.4"]
                  [org.cloudhoist/pallet-crates-all "0.5.0"]
                  [org.jclouds/jclouds-all "1.0.0"]
                  [org.jclouds.driver/jclouds-jsch "1.0.0"]
