@@ -15,5 +15,6 @@
                      [org.cloudhoist/pallet-lein "0.4.1"]  ; lein
                      [cake-pallet "0.4.0"]]                ; cake
   :repositories
-  {"sonatype" "https://oss.sonatype.org/content/repositories/releases/"}
+  {"sonatype" "https://oss.sonatype.org/content/repositories/releases/"
+   "sonatype-snapshots" "https://oss.sonatype.org/content/repositories/snapshots"}
   :tasks [cake-pallet.tasks])
