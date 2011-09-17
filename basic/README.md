@@ -4,8 +4,8 @@ Project with basic pallet usage.
 
 ## Usage
 
-- `git clone https://github.com/hugoduncan/pallet-examples` or, download
-  the [tarball](https://github.com/hugoduncan/pallet-examples/tarball/master).
+- `git clone https://github.com/pallet/pallet-examples` or, download
+  the [tarball](https://github.com/pallet/pallet-examples/tarball/master).
 
 - Install [Leiningen](http://github.com/technomancy/leiningen).
 

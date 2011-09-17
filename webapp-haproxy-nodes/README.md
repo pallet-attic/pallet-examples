@@ -8,7 +8,7 @@ deploy web applications to the cloud proxied by HAProxy.  The project can be use
 
 ### Setting up your environment
 
-Copy the file [settings.xml](http://github.com/hugoduncan/pallet-examples/tree/master/webapp-haproxy-nodes/settings.xml) into your ~/.m2 directory. If you already have an existing settings.xml file in that directory, merge the contents into the existing ones.
+Copy the file [settings.xml](http://github.com/pallet/pallet-examples/tree/master/webapp-haproxy-nodes/settings.xml) into your ~/.m2 directory. If you already have an existing settings.xml file in that directory, merge the contents into the existing ones.
 
 Add your cloud provider name and credentials in the profile, both for compute and optionally for blobstore. In the latter case, also provide the name of the bucket to use later on to deploy your applications from your blobstore.
 
@@ -16,13 +16,13 @@ Add your cloud provider name and credentials in the profile, both for compute an
 
 We will use two different web applications for this example: nano-webapp and mini-webapp.
 
-First we build the war file in the [mini-webapp](http://github.com/hugoduncan/pallet-examples/tree/master/mini-webapp/) project directory.
+First we build the war file in the [mini-webapp](http://github.com/pallet/pallet-examples/tree/master/mini-webapp/) project directory.
 
     bash$ lein deps
     bash$ lein compile
     bash$ lein uberwar
 
-Then we build the war file in the [nano-webapp](http://github.com/hugoduncan/pallet-examples/tree/master/nano-webapp) project directory.
+Then we build the war file in the [nano-webapp](http://github.com/pallet/pallet-examples/tree/master/nano-webapp) project directory.
 
     bash$ mvn clean package
 

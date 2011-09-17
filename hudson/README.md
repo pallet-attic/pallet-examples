@@ -34,7 +34,7 @@ You can create `~/.pallet/config.clj` to include your cloud credentials.
          :rs  {:provider "cloudservers" :identity "username" :credential "key"}})
 
 Lein will create `src/hudson/core.clj` which we will rename to `src/hudson/ci.clj`.
-See [ci.clj](http://github.com/hugoduncan/pallet-examples/blob/master/hudson/src/hudson/ci.clj)
+See [ci.clj](http://github.com/pallet/pallet-examples/blob/master/hudson/src/hudson/ci.clj)
 
 
 To launch the server:
