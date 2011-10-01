@@ -17,21 +17,15 @@
   [request]
   (-> request
       (java/java :openjdk)
-      (tomcat/tomcat)))
+      (tomcat/settings {})
+      (tomcat/install)))
 
 (defn tomcat-deploy
   "Tomcat deploy as ROOT application"
   [request path]
   (-> request
+      (tomcat/settings {})
       (tomcat/deploy "ROOT" :local-file path :clear-existing true)))
-
-(defn tomcat-deploy-from-blobstore
-  [request container path]
-  (println "Deploying from %s %s" container path)
-  (-> request
-      (tomcat/deploy
-       "ROOT"
-       :blob {:container container :path path} :clear-existing true)))
 
 (defn haproxy
   "haproxy server with app1 on port 80."

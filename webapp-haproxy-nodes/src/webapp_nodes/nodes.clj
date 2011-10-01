@@ -1,6 +1,5 @@
 (ns webapp-nodes.nodes
   (:require
-   [pallet.maven :as maven]
    [pallet.core :as core]
    [pallet.resource :as resource]
    [pallet.resource.service :as service]
@@ -31,12 +30,5 @@
   :deploy-nano-webapp (resource/phase
                        (crates/tomcat-deploy
                         "../nano-webapp/target/nano-webapp.war"))
-  :deploy-from-blobstore (resource/phase
-                          (crates/tomcat-deploy-from-blobstore
-                           (or
-                            (:deploy-bucket (pallet.configure/pallet-config))
-                            (:pallet.deploy.bucket (maven/properties nil))
-                            (str (System/getProperty "user.name") "oredev"))
-                           "mini-webapp-1.0.0-SNAPSHOT.war"))
   :restart-tomcat (resource/phase
                    (service/service "tomcat6" :action :restart)))
