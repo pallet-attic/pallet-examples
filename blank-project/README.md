@@ -25,16 +25,26 @@ Leiningen creates a `project.clj` file, and we need to add pallet and
 jclouds to the `:dependencies`, and pallet-lein to the
 `:dev-dependencies`, so it looks like:
 
-    (defproject blank-project "0.4.0"
+    (defproject blank-project "0.6.0"
       :description "blank-project for pallet"
-      :dependencies [[org.cloudhoist/pallet "0.6.4"]
+      :dependencies [;; pallet lib
+                     [org.cloudhoist/pallet "0.6.6"]
+                     ;; all pallet crates
                      [org.cloudhoist/pallet-crates-all "0.5.0"]
-                     [org.jclouds/jclouds-all "1.0.0"]
-                     [org.jclouds/jclouds-jsch "1.0.0"]
-                     [org.jclouds/jclouds-log4j "1.0.0"]
-                     [log4j/log4j "1.2.14"]]
-      :dev-dependencies [[org.cloudhoist/pallet-lein "0.4.0"]]
-      :repositories {"sonatype" "https://oss.sonatype.org/content/repositories/releases"})
+                     ;; jclouds imports
+                     [org.jclouds/jclouds-all "1.2.1"] 
+                     [org.jclouds/jclouds-compute "1.2.1"]
+                     [org.jclouds/jclouds-blobstore "1.2.1"]
+                     [org.jclouds.driver/jclouds-jsch "1.2.1"]
+                     [org.jclouds.driver/jclouds-slf4j "1.2.1"]
+                     ;; logging
+                     [ch.qos.logback/logback-core "1.0.0"]
+                     [ch.qos.logback/logback-classic "1.0.0"]]
+      :dev-dependencies [[swank-clojure/swank-clojure "1.3.2"] ; swank
+                         [org.cloudhoist/pallet-lein "0.4.1"]] ; lein
+      :repositories
+      ;; pallet and jclouds libraries live at sonatype
+      {"sonatype" "https://oss.sonatype.org/content/repositories/releases/"})
 
 Note that `jclouds-all` is rather heavy.  You can use the list of
 supported clouds and individual jclouds provider jars to slim the
@@ -42,12 +52,6 @@ dependency down.
 
     lein deps
     lein pallet providers
-
-### cake
-
-You can equivalently use cake. You will need `[cake-pallet "0.4.0"]`
-in your `:dev-dependencies` instead of the lein plugin and you should
-add `:tasks [cake-pallet.tasks]`, both in project.clj.
 
 ## Credentials
 
@@ -99,9 +103,9 @@ cloud account.
 
 ### Logging
 
-The project contains a `resources/log4j.properties` file that
-configures log4j logging into the log subdirectory.  Edit this to
-control the placement and detail level of the logs.
+The project contains a `resources/logback.xml` file that configures
+[logback](http://logback.qos.ch/) logging into the log subdirectory.
+Edit this to control the placement and detail level of the logs.
 
 ### Swank
 
