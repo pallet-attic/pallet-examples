@@ -1,6 +1,6 @@
 (defproject basic "0.6.0"
   :description "Basic Pallet Usage"
-  :dependencies [[org.cloudhoist/pallet "0.6.6"]
+  :dependencies [[org.cloudhoist/pallet "0.6.8"]
                  [org.cloudhoist/pallet-crates-all "0.5.0"]
                  ;; jclouds imports
                  [org.jclouds/jclouds-all "1.2.1"]
