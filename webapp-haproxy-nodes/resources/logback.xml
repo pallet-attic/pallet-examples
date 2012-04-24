@@ -1,0 +1,23 @@
+<configuration scan="true" scanPeriod="1 seconds" debug="false">
+  
+  <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+    <!-- deny all events with a level below INFO, that is TRACE and DEBUG -->
+    <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+      <level>ERROR</level>
+    </filter>
+    <encoder>
+      <pattern>%d{HH:mm:ss.SSS} %-5level %logger{36} - %msg%n</pattern>
+    </encoder>
+  </appender>
+  <appender name="pallet.log" class="ch.qos.logback.core.FileAppender">
+    <file>log/pallet.log</file>
+    <encoder>
+      <pattern>%date %level %logger{10} %msg%n</pattern>
+    </encoder>
+  </appender>
+  <root level="INFO">
+    <appender-ref ref="STDOUT"/>
+    <appender-ref ref="pallet.log" />
+  </root>
+
+</configuration>
