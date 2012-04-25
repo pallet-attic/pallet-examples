@@ -14,5 +14,4 @@
   :dev-dependencies [[swank-clojure/swank-clojure "1.3.2"] ; swank
                      [org.cloudhoist/pallet-lein "0.4.1"]] ; lein
   :repositories
-  {"sonatype" "http://oss.sonatype.org/content/repositories/releases"}
-  :tasks [cake-pallet.tasks])
+  {"sonatype" "http://oss.sonatype.org/content/repositories/releases"})
