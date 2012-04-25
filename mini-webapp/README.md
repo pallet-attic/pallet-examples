@@ -10,12 +10,12 @@ We create a blank clojure project.
     lein new mini-webapp
 
 We'll use the [ring](http://github.com/mmcgrana/ring) library, so we'll add that
-to the project.clj `:depenencies`
+to the project.clj `:dependencies`
 
     [ring "0.2.6"]
 
 To create a war file we'll also use the leiningen-war plugin, so we add it to
-`:dev-depenencies`
+`:dev-dependencies`
 
     [uk.org.alienscience/leiningen-war "0.0.7"]
 
