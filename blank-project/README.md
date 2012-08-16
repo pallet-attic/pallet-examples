@@ -65,7 +65,7 @@ credentials. You will need to add maven-settings to your project dependencies
 for this to work.
     [org.apache.maven/maven-settings "2.0.10"]
 The
-[setttings.xml](http://github.com/hugoduncan/pallet-examples/blob/master/blank-project/settings.xml)
+[setttings.xml](http://github.com/pallet/pallet-examples/blob/master/blank-project/settings.xml)
 file in this projects provides an example of the format.  If you do not have
 this file, you can create it from the example.
 

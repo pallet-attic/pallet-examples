@@ -7,7 +7,7 @@ for your own projects.
 
 ## Testing
 
-First we build the war file, in the [mini-webapp](http://github.com/hugoduncan/pallet-examples/tree/master/mini-webapp/) project directory.
+First we build the war file, in the [mini-webapp](http://github.com/pallet/pallet-examples/tree/master/mini-webapp/) project directory.
 
     bash$ lein deps
     bash$ lein compile
